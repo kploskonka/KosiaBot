@@ -1,0 +1,8 @@
+{
+  "name": "KosiaBot",
+  "version": "0.0.1",
+  "description": "Private bot used in ParkourMC Server",
+  "main": "bot.js",
+  "author": "Ksoai",
+  "dependencies": {}
+}
