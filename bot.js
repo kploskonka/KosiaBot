@@ -1,4 +1,4 @@
-const { prefix, token } = require('./config.json');
+const { prefix, token, activity } = require('./config.json');
 const fs = require('fs');
 const Discord = require('discord.js');
 
@@ -16,6 +16,7 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
 	console.log(`Połączono jako ${client.user.tag}`);
+	client.user.setActivity(activity);
 });
 
 client.on('message', message => {
@@ -72,4 +73,3 @@ client.on('message', message => {
 });
 
 client.login(token);
-
