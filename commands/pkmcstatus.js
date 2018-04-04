@@ -1,5 +1,6 @@
 const request = require('request');
 const Discord = require('discord.js');
+const { serverIP } = require('./config.json');
 
 module.exports = {
     name: 'pkmcstatus',
@@ -7,7 +8,7 @@ module.exports = {
     aliases: ['pkmc', 'serverstatus'],
     cooldown: 20,
     execute(message, args) {
-    	const url = 'https://api.skript.pl/server/46.105.209.78/';
+    	const url = 'https://api.skript.pl/server/'+ serverIP + '/';
 
     	request.get(url, (error, response, body) => {
     	    let json = JSON.parse(body);
