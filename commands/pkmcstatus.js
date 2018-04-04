@@ -13,25 +13,25 @@ module.exports = {
     	request.get(url, (error, response, body) => {
     	    let json = JSON.parse(body);
     		const onlineStatus = `${json.online}`;
-            const richEmbed = new Discord.RichEmbed()
+            const statusEmbed = new Discord.RichEmbed()
                 .setTitle('Status serwera ParkourMC.pl');
             
             if (onlineStatus == 'true') {
                 const onlinePlayers = `${json.players.online}`;
                 const maxPlayers = `${json.players.max}`;
-                richEmbed.setColor('#33cc33');
-                richEmbed.setThumbnail('https://www.iconsdb.com/icons/preview/guacamole-green/ok-xxl.png');
-                richEmbed.addField('Status serwera:', 'Online');
-                richEmbed.addField('Gracze online: ', onlinePlayers + '/' + maxPlayers);
-                richEmbed.addField('IP serwera:', 'parkourmc.pl');
+                statusEmbed.setColor('#33cc33');
+                statusEmbed.setThumbnail('https://www.iconsdb.com/icons/preview/guacamole-green/ok-xxl.png');
+                statusEmbed.addField('Status serwera:', 'Online');
+                statusEmbed.addField('Gracze online: ', onlinePlayers + '/' + maxPlayers);
+                statusEmbed.addField('IP serwera:', 'parkourmc.pl');
             } else if (onlineStatus == 'false') {
-                richEmbed.setColor('#ff0000');
-                richEmbed.setThumbnail('https://www.iconsdb.com/icons/preview/soylent-red/x-mark-3-xxl.png');
-                richEmbed.addField('Status serwera:', 'Offline');
-                richEmbed.addField('Przepraszamy za utrudnienia.', 'Jeżeli problem nie ustępuje w ciągu kilku minut, skontaktuj się z Administracją.');
+                statusEmbed.setColor('#ff0000');
+                statusEmbed.setThumbnail('https://www.iconsdb.com/icons/preview/soylent-red/x-mark-3-xxl.png');
+                statusEmbed.addField('Status serwera:', 'Offline');
+                statusEmbed.addField('Przepraszamy za utrudnienia.', 'Jeżeli problem nie ustępuje w ciągu kilku minut, skontaktuj się z Administracją.');
             }
 
-            message.channel.send({embed: richEmbed});
+            message.channel.send({embed: statusEmbed});
     	})
     },
 };
